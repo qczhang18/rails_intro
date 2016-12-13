@@ -1,0 +1,5 @@
+%h1
+  = @user.fname
+  = @user.lname
+
+=link_to("Delete User?", user_path(@user.id), method: :delete)

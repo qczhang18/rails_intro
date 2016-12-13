@@ -1,0 +1,11 @@
+%h1
+  Users Page
+%h5
+  - @users.each do |user|
+    %a{href: "/users/#{user.id}"}
+      = user.fname
+      = user.lname
+    %br
+    = user.email
+    %br
+
