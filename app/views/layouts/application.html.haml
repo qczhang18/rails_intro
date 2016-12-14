@@ -13,6 +13,18 @@
       Users
     %a{href: '/movies'}
       Movies
+    - if user_signed_in?
+      %a{href: '/logout'}
+        Logout
+    - else
+      %a{href: '/login'}
+        Login
+    %br
+    %br
+
+    - if current_user
+      %h2
+        = 'Welcome ' + current_user.fname
     =flash[:notice] if flash[:notice]
     =flash[:alert] if flash[:alert]
     = yield

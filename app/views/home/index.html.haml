@@ -1,6 +1,8 @@
 %h1
-  Home Page
+  Search User
 %h5
-  - @tweets.each do |tweet|
-    = tweet.body
+= form_tag("/search", method: "get") do
+  = label_tag(:query, "Search:")
+  = text_field_tag(:query)
+  = submit_tag("Submit")
 %br
