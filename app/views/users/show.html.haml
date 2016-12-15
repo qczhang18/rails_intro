@@ -1,18 +1,21 @@
 %h1 User Profile
-= link_to('Edit User', edit_user_path(@user))
+
+- if user_signed_in? && current_user.id == @user.id
+  = link_to('Edit User', edit_user_path(@user))
 %br
 %br
-ID: 
+ID:
 = @user.id
 %br
-FirstName: 
+FirstName:
 = @user.fname
 %br
-Lastname: 
+Lastname:
 = @user.lname
 %br
-Email: 
+Email:
 = @user.email
 %br
 
-=link_to("Delete User?", user_path(@user.id), method: :delete)
+- if user_signed_in? && current_user.id == @user.id
+  =link_to("Delete User?", user_path(@user.id), method: :delete)
