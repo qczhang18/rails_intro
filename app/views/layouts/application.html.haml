@@ -6,28 +6,13 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %link{href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel: "stylesheet"}
-  %body
-    %a{href: '/'}
-      Home
-    %a{href: '/users'}
-      Users
-    -# %a{href: '/movies'}
-      Movies
-    %a{href: '/posts'}
-      Posts
-    - if user_signed_in?
-      %a{href: '/logout'}
-        Logout
-    - else
-      %a{href: '/login'}
-        Login
-    %br
-    %br
-
-    - if current_user
-      %h2
-        = 'Welcome ' + current_user.fname
-    =flash[:notice] if flash[:notice]
-    =flash[:alert] if flash[:alert]
-    = yield
+    %link{:type => "text/css", :rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"}
+    %link{:type => "text/css", :rel => "stylesheet", :href => "style.css"}
+%body
+  =render partial: 'layouts/nav'
+- if current_user
+  %h2
+    = 'Welcome ' + current_user.fname
+=flash[:notice] if flash[:notice]
+=flash[:alert] if flash[:alert]
+= yield
