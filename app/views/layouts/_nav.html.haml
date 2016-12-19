@@ -16,6 +16,8 @@
         -# %a{href: '/posts'}
         -#   Posts
       %li
+        = link_to "Comments", comments_path
+      %li
         - if user_signed_in?
           = link_to "Logout", '/logout'
           -# %a{href: '/logout'}
