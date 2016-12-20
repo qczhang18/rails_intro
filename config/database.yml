@@ -24,6 +24,7 @@ default: &default
 development:
   <<: *default
   database: introrails_development
+  username: nycda
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -81,5 +82,4 @@ test:
 production:
   <<: *default
   database: introrails_production
-  username: introrails
-  password: <%= ENV['INTRORAILS_DATABASE_PASSWORD'] %>
+  username: nycda
